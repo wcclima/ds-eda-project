@@ -1,56 +1,34 @@
-# ds-project-template
+# Exploratory Data Analysis (EDA) for the King County, WA, Houses Dataset
 
-Template for creating ds simple projects
+## Summary
+
+In this project we explore the King County Houses Dataset, with information about the house market. Our stakeholder is an investor in historic propertries in this market and is looking for high returns. We analyse how historic houses perform as investiment with respect to the market, which are the best locations for this kind of investiment and whether age and renovation are relevant for the investiment return rate. 
 
 ## Requirements
 
 - pyenv
 - python==3.11.3
 
-## Setup
-
-One of the first steps when starting any data science project is to create a virtual environment. For this project you have to create this environment from scratch yourself. However, you should be already familiar with the commands you will need to do so. The general workflow consists of... 
-
-* setting the python version locally to 3.11.3
-* creating a virtual environment using the `venv` module
-* activating your newly created environment 
-* upgrading `pip` (This step is not absolutely necessary, but will save you trouble when installing some packages.)
-* installing the required packages via `pip`
-
-At the end, you want to make sure that people who are interested in your project can create an identical environment on their own computer in order to be able to run your code without running into errors. Therefore you can create a `requirements file` and add it to your repository. You can create such a file by running the following command: 
-
-```bash
-pip freeze > requirements.txt
-```
-
-*Note: In rare case such a requirements file created with `pip freeze` might not ensure that another (especially M1 chip) user can install and execute it properly. This can happen if libraries need to be compiled (e.g. SciPy). Then it also depends on environment variables and the actual system libraries.*
-
-### Unit testing (Optional)
-
-If you write python scripts for your data processing methods, you can also write unit tests. In order to run the tests execute in terminal:
-
-```bash
-pytest
-```
-
-This command will execute all the functions in your project that start with the word **test**.
-
-
 ### Environment
 
 This repo contains a requirements.txt file with a list of all the packages and dependencies you will need. Before you install the virtual environment, make sure to install postgresql if you haven't done it before.
 
-```bash
-brew update
-brew install postgresql@14
-```
+## Files
 
-In order to install the environment you can use the following commands:
+- `FetchingTheDataEDA.ipynb` Where we retrieve the data.
+- `EDA_WilliamLimaProjectZacharyBrooks.ipynb` Where we perform our data cleaning and EDA
+- `SlidesEDA_WilliamLima.pdf` Presentation slides
+- `zachary_brooks_avatar.png` IA generated avatar for our ficticious investor
+- `zipcodes_king_county_wa.pdf` A map of the zipcodes in King County
 
-```
-pyenv local 3.11.3
-python -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-```
+## Methodology
+
+- We have retrieved the data using PostgreSQL.
+- We have loaded this data to a *Pandas* dataframe, when we cleared the data by correcting formats and dealing with the NaN.
+- We have established criterias for what is a historic property, high profit and best (i.e. most profitable) neighbourhoods.  
+
+## Conclusions
+
+- Historic houses outperform the market average as investiment.
+- There is a seasonal effect in the house prices, making it more profitable to by in winter and sell in spring.
+- Renovation and age doesn't seem to play a role in obtaining high return rates for the investiment.
